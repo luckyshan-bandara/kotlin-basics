@@ -1,4 +1,4 @@
-package com.lucky
+package com.lucky.coroutines
 
 import kotlinx.coroutines.async
 import kotlinx.coroutines.delay
