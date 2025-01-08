@@ -26,6 +26,16 @@ fun main(args: Array<String>) {
         println(c)
     }
 
+    val s = "this is all in lowercase"
+//    println(Utils().upperFirstAndLast("this is all in lowercase"))
+    println(s.upperFirstAndLast())
+
+}
+
+// Extension function
+fun String.upperFirstAndLast(): String {
+    val upperFrst = substring(0,1).uppercase() + substring(1)
+    return upperFrst.substring(0, upperFrst.length-1) + upperFrst.substring(upperFrst.length-1, upperFrst.length).uppercase()
 }
 
 // Simplified - function with expression body
