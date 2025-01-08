@@ -1,4 +1,4 @@
-package core.inheritance
+package core.inheritanceandinterface
 
 fun main() {
     val laserPrinter = LaserPrinter("Toshiba", 100)
@@ -27,13 +27,23 @@ class SpecialLaserPrinter(modelName: String, ppm: Int): LaserPrinter(modelName, 
 }
 
 // When no primary constructor
-open class Something {
+open class Something: MySubInterface {
 
     val someProperty: String
+    override val number: Int = 25
+//    override val number2: Int = 50
 
     constructor(someParamater: String) {
         someProperty = someParamater
         println("I'm in the parent's constructor")
+    }
+
+    override fun mySubFunction(num: Int): String {
+        TODO("Not yet implemented")
+    }
+
+    override fun myFunction(str: String): String {
+        TODO("Not yet implemented")
     }
 }
 
@@ -47,3 +57,21 @@ class SomethingElse: Something {
 
 // data classes? Modifier 'open' is incompatible with 'data'
 //open data class DataClass(val number: Int)
+
+interface MyInterface {
+
+    val number: Int
+
+    // Property in an interface cannot have a backing field
+    val number2: Int
+        get() = number * 100
+
+    fun myFunction(str: String): String
+
+}
+
+interface MySubInterface: MyInterface {
+
+    fun mySubFunction(num: Int): String
+
+}
