@@ -1,5 +1,7 @@
 package core
 
+val MY_CONSTANT = 100
+
 fun main() {
     val emp = Employee2("Luckyshan")
     emp.fullTime = false
@@ -15,10 +17,30 @@ fun main() {
     println(emp3.fullTime)
 
     println(Demo().dummy)
+    println(MY_CONSTANT)
+
+    val car1 = Car("Red", "Toyota", 2020)
+    println(car1)
+    val car2 = Car("Red", "Toyota", 2020)
+    println(car1 == car2)
+    val car3 = car1.copy()
+    println(car3)
+    println("ref ${car1 === car3}")
+    val car4 = car1.copy(year = 2025)
+    println(car4)
+
+
+    val emp4 = Employee2("Jhon")
+    println(emp4)
+    val emp5 = Employee2("Jhon")
+    println(emp4 == emp5)
 }
 
+// 10) Data Classes
+data class Car(val color: String, val model: String, val year: Int)
+
 // 8) Getters and setters - custom accessors
-class Employee2 constructor(val firstName: String, fullTime: Boolean = true){
+class Employee2(val firstName: String, fullTime: Boolean = true){
 
     var fullTime = fullTime
         get() {
