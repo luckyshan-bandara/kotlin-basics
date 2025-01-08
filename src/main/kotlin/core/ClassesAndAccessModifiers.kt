@@ -2,7 +2,9 @@ package core
 
 fun main() {
     val emp = Employee2("Luckyshan")
+    emp.fullTime = false
     println(emp.firstName)
+    println(emp.fullTime)
 
     val emp2 = Employee2("Chalani")
     println(emp2.firstName)
@@ -15,6 +17,21 @@ fun main() {
     println(Demo().dummy)
 }
 
+// 8) Getters and setters - custom accessors
+class Employee2 constructor(val firstName: String, fullTime: Boolean = true){
+
+    var fullTime = fullTime
+        get() {
+            println("Running the custom get")
+            return field
+        }
+        set(value) {
+            println("Running the custom set")
+            field = value
+        }
+
+}
+
 // 7) No primary constructor, only a secondary constructor
 class Demo {
     val dummy: String
@@ -25,9 +42,9 @@ class Demo {
 }
 
 // 6) Use default values instead of a Secondary constructor
-class Employee2 constructor(val firstName: String, var fullTime: Boolean = true){
-
-}
+//class Employee2 constructor(val firstName: String, var fullTime: Boolean = true){
+//
+//}
 
 // 5) Secondary constructor
 //class Employee2 constructor(val firstName: String){
