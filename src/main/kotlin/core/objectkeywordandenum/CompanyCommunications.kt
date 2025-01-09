@@ -27,6 +27,8 @@ fun main() {
 
     println(Department.HR.getDepartmentInfo())
 
+    topLevel("I'm private")
+
 }
 
 // object use case 1: Singleton
@@ -87,4 +89,4 @@ enum class Department(val fullName: String, val numEmp: Int) {
     fun getDepartmentInfo() = "The $fullName department has $numEmp employees"
 }
 
-fun topLevel(str: String) = println("Top level function: $str")
+private fun topLevel(str: String) = println("Top level function: $str")
