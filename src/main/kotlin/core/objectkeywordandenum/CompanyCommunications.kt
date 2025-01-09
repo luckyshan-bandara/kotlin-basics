@@ -1,4 +1,4 @@
-package core.objectkeyword
+package core.objectkeywordandenum
 
 import java.time.Year
 
@@ -24,6 +24,8 @@ fun main() {
     })
 
     println(thisIsMutable)
+
+    println(Department.HR.getDepartmentInfo())
 
 }
 
@@ -74,4 +76,13 @@ interface SomeInterface {
 
 fun wantSomeInterface(si: SomeInterface) {
     println("printing from wantSomeInterface ${si.mustImplement(22)}")
+}
+
+
+// enum
+enum class Department(val fullName: String, val numEmp: Int) {
+    HR("Human Resources", 5), IT("Information Technology", 50),
+    SALES("Sales", 10);
+
+    fun getDepartmentInfo() = "The $fullName department has $numEmp employees"
 }
