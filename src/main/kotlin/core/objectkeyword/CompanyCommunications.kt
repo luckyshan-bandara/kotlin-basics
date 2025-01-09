@@ -1,4 +1,4 @@
-package core
+package core.objectkeyword
 
 import java.time.Year
 
@@ -13,9 +13,21 @@ fun main() {
     println(someClass1.someString)
     println(someClass2.someString)
 
+    var thisIsMutable = 45
+
+    // Anonymous objects instance
+    wantSomeInterface(object: SomeInterface {
+        override fun mustImplement(num: Int): String {
+            thisIsMutable ++
+            return "This is from mustImplement: ${num * 100}"
+        }
+    })
+
+    println(thisIsMutable)
+
 }
 
-// Singleton
+// object use case 1: Singleton
 object CompanyCommunications {
 
     val currentYear = Year.now().value
@@ -34,7 +46,7 @@ object CompanyCommunications {
 //    }
 //}
 
-// companion objects
+// object use case 2: companion objects
 // with factory pattern
 class SomeClass private constructor(val someString: String) {
 
@@ -53,4 +65,13 @@ class SomeClass private constructor(val someString: String) {
             }
         }
     }
+}
+
+// object use case 3: Anonymous instances
+interface SomeInterface {
+    fun mustImplement(num: Int): String
+}
+
+fun wantSomeInterface(si: SomeInterface) {
+    println("printing from wantSomeInterface ${si.mustImplement(22)}")
 }
