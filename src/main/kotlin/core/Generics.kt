@@ -10,6 +10,10 @@ fun main() {
     list.printCollection()
     bdList.printCollection()
 
+    val ints = listOf(1,2,3,4,5)
+    val shorts: List<Short?> = listOf(12,23,34,54)
+    convertToInt(shorts)
+
 }
 
 fun <T> List<T>.printCollection() {
@@ -17,3 +21,11 @@ fun <T> List<T>.printCollection() {
         println(item)
     }
 }
+
+fun <T: Number?> convertToInt(collection: List<T>) {
+    for (num in collection) {
+        println("${num?.toInt()}")
+    }
+}
+
+// todo: Reified parameters, Covariance, Contravariance, Use-site variance
