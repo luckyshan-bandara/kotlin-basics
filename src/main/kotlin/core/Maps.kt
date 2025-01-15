@@ -1,5 +1,6 @@
 package core
 
+// Sets cannot have Duplicate Items
 fun main() {
 
     val immutableMap = mapOf<Int, Car3>(1 to Car3("green", "Toyota", 2015),
@@ -33,6 +34,20 @@ fun main() {
     val car2 = Car4("blue", "Alto", 2016)
     val (color2, model2, year2) = car2
     println("### with data class: $color2  $model2  $year2")
+
+    println("--------------------------------------------------------------------")
+    val setInts = setOf(10, 15, 5, 3, -22)
+    println(setInts.plus(20))
+    println(setInts.plus(10))
+    println(setInts.minus(5))
+
+    println(setInts)
+    println(setInts.average())
+    println(setInts.drop(3)) // drop first 3 elements
+
+    val setIntsMutable = setOf(1,2,3,4,5)
+    println(setIntsMutable.plus(10))
+    println(setIntsMutable)
 }
 
 class Car3(val color: String, val model: String, val year: Int) {
