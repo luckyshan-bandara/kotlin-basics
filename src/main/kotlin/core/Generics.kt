@@ -16,6 +16,7 @@ fun main() {
 
 }
 
+// extension function
 fun <T> List<T>.printCollection() {
     for (item in this) {
         println(item)
